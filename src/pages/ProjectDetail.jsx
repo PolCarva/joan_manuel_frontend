@@ -34,7 +34,7 @@ const ProjectDetail = () => {
                       <div>
                         <div className="grid grid-cols-7">
                           <Vimeo
-                          autoplay
+                          
                             key={file}
                             video={file}
                             className="aspect-video col-span-4"
