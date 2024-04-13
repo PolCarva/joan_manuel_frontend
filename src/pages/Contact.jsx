@@ -16,6 +16,7 @@ const Contact = () => {
               <a
                 href="mailto:manuelcabreraduarte@gmail.com"
                 className="italic w-max relative before:absolute before:content-[''] before:h-px before:bottom-0 before:w-0 before:bg-gray-400  md:hover:before:w-full before:transition-all before:duration-300 before:ease-in-out transition"
+                rel="noreferrer"
               >
                 manuelcabreraduarte@gmail.com
               </a>
@@ -26,6 +27,7 @@ const Contact = () => {
                 className="hover:text-black transition-colors ease-in-out duration-300 w-max"
                 href="https://wa.me/59892518685?text=Hi,%20Joan%20Manuel,%20I'm%20interested%20on%20your%20services."
                 target="_blank"
+                rel="noreferrer"
               >
                 (+598) 92 518 685
               </a>
@@ -33,15 +35,17 @@ const Contact = () => {
             <div className="flex flex-col text-gray-400 mt-16">
               <a
                 className="hover:text-black transition-colors ease-in-out duration-300 w-max"
-                href="https://www.youtube.com/@joanmanuelcabrera"
+                href="https://www.instagram.com/journalmcd/"
+                rel="noreferrer"
                 target="_blank"
               >
                 instagram.
               </a>
               <a
                 className="hover:text-black transition-colors ease-in-out duration-300 w-max"
-                href="https://www.instagram.com/journalmcd/"
+                href="https://www.youtube.com/@joanmanuelcabrera"
                 target="_blank"
+                rel="noreferrer"
               >
                 youtube.
               </a>
@@ -49,6 +53,7 @@ const Contact = () => {
                 className="hover:text-black transition-colors ease-in-out duration-300 w-max"
                 href="https://vimeo.com/user209113944"
                 target="_blank"
+                rel="noreferrer"
               >
                 vimeo.
               </a>
