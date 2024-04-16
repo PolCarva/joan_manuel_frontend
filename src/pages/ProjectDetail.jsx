@@ -3,20 +3,20 @@ import MainLayout from "../components/MainLayout";
 import { useParams } from "react-router-dom";
 import Vimeo from "@u-wave/react-vimeo";
 
-import { getProjectById } from "../services/projects";
+import { getProjectBySlug } from "../services/projects";
 import { stables } from "../constants/stables";
 const ProjectDetail = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
+  const [error, setError] = useState(false);
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const project = await getProjectById(id);
-        project.index ? project.index : project.index = 0;
+        const project = await getProjectBySlug(slug);
+        project.index ? project.index : (project.index = "00");
         setProject(project);
-        console.log(project);
       } catch (error) {
         console.error("Error fetching project:", error);
       } finally {
@@ -25,7 +25,7 @@ const ProjectDetail = () => {
     };
 
     fetchProject();
-  }, [id]);
+  }, [slug]);
 
   return (
     <MainLayout>
@@ -51,10 +51,18 @@ const ProjectDetail = () => {
                     <div className="min-h-[50vh] flex flex-col gap-5">
                       {project.type.toLowerCase() === "film" ? (
                         <div key={project.url} className="grid grid-cols-7">
-                          <Vimeo
-                            video={project.url}
-                            className="aspect-video col-span-4"
-                          />
+                          {error ? (
+                            <div className="col-span-4 aspect-video bg-gray-200 grid place-content-center rounded-md">
+                              Video not found
+                            </div>
+                          ) : (
+                            <Vimeo
+                              onError={() => setError(true)}
+                              video={project.url}
+                              className="aspect-video col-span-4"
+                            />
+                          )}
+
                           <span className="col-span-3 text-right">
                             {/* {index + 1 > 9 ? index + 1 : `0${index + 1}`} */}
                           </span>

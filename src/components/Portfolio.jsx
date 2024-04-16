@@ -53,7 +53,7 @@ const Portfolio = () => {
           const year = new Date(film?.year).getFullYear();
           return (
             <Link
-              to={`/projects/${film?.id}`}
+              to={`/projects/${film?.slug}`}
               className="flex hover:text-gray-400 transition-colors ease-in-out duration-200 justify-between md:grid grid-cols-12 md:grid-cols-10 gap-6 text-sm"
             >
               <span className="italic col-span-2 hidden md:block">{newIndex}</span>
@@ -92,7 +92,7 @@ const Portfolio = () => {
           return (
             <Link
               key={photo?.name}
-              to={`/projects/${photo?.id}`}
+              to={`/projects/${photo?.slug}`}
               className="flex hover:text-gray-400 transition-colors ease-in-out duration-200 justify-between md:grid grid-cols-12 md:grid-cols-10 gap-6 text-sm"
             >
               <span className="italic col-span-2 hidden md:block">

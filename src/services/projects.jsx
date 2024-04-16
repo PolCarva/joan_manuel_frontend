@@ -1,11 +1,11 @@
 
 import { stables } from "../constants/stables";
 
-export const getProjectById = async (id) => {
+export const getProjectBySlug = async (slug) => {
   try {
-    const response = await fetch(`${stables.BASE_URL}/projects/${id}`);
+    const response = await fetch(`${stables.BASE_URL}/projects/by-slug/${slug}`);
     const project = await response.json();
-    return project;
+    return project.docs[0];
   } catch (error) {
     console.error(error);
   }
