@@ -10,12 +10,12 @@ const ProjectDetail = () => {
   const [error, setError] = useState(false);
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [readMore, setReadMore] = useState(false);
 
   useEffect(() => {
     const fetchProject = async () => {
       try {
         const project = await getProjectBySlug(slug);
-        project.index ? project.index : (project.index = "00");
         setProject(project);
       } catch (error) {
         console.error("Error fetching project:", error);
@@ -27,6 +27,10 @@ const ProjectDetail = () => {
     fetchProject();
   }, [slug]);
 
+  const getYear = (date) => {
+    return new Date(date).getFullYear();
+  };
+
   return (
     <MainLayout>
       <section className="w-full h-full py-6 px-6 container mx-auto gap-1 ">
@@ -35,16 +39,33 @@ const ProjectDetail = () => {
             {/* Desktop */}
             <div className="hidden md:block">
               <ul className="flex justify-between text-lg md:grid grid-cols-12 md:grid-cols-10 gap-6 mb-6">
-                <li className="col-span-3">{project.index || 0}</li>
+                <li className="col-span-3 capitalize">{project.type}:</li>
                 <li className="col-span-4 flex w-full justify-between">
                   <span>{project.title}</span>
-                  <span>{new Date(project.year).getFullYear}</span>
+                  <span>{getYear(project.year)}</span>
                 </li>
-                <li className="col-span-3 text-right">{project.project}</li>
+                <li className="col-span-3 text-right italic">
+                  {project.project}
+                </li>
               </ul>
               <ul className="flex justify-between md:grid grid-cols-12 md:grid-cols-10 gap-6 text-sm text-gray-500 mb-6">
                 <li className="col-span-3 grid grid-cols-3 italic text-gray-400 text-justify">
-                  <span className="col-span-2">{project.description}</span>
+                  <span className="col-span-2 flex flex-col gap-5">
+                    {project.description}
+                    {readMore && (
+                      <span className="mt-5">{project.read_more}</span>
+                    )}
+                    {project.read_more && (
+                      <>
+                        <span
+                          className="col-span-1 underline cursor-pointer"
+                          onClick={() => setReadMore(!readMore)}
+                        >
+                          {readMore ? "Read Less" : "Read More"}
+                        </span>
+                      </>
+                    )}
+                  </span>
                 </li>
                 <li className="col-span-7 ">
                   <div className="min-h-[50svh] flex flex-col gap-5">
@@ -63,9 +84,10 @@ const ProjectDetail = () => {
                             />
                           )}
 
-                          <span className="col-span-3 text-right">
-                            {/* {index + 1 > 9 ? index + 1 : `0${index + 1}`} */}
+                          <span className="col-span-3 text-right text-gray-400">
+                            01
                           </span>
+                          <p className="mt-5 text-black">{project.credits}</p>
                         </div>
                       ) : (
                         project.images.map((file, index) => (
@@ -89,32 +111,41 @@ const ProjectDetail = () => {
 
             {/* Mobile */}
             <div className="flex flex-col gap-5 md:hidden">
-              <h2 className="text-xl">{project.title}</h2>
-              {project.images.map((file, index) => {
-                return project?.category?.toLowerCase() === "film" ? (
-                  <div>
+              <div className="flex justify-between w-full">
+                <h2 className="text-sm">{project.title}</h2>
+                <span className="text-sm text-gray-400">
+                  {getYear(project.year)}
+                </span>
+              </div>
+              {project.type.toLowerCase() === "film" ? (
+                <div key={project.url} className="flex flex-col w-full">
+                  {error ? (
+                    <div className="col-span-4 aspect-video bg-gray-200 grid place-content-center rounded-md">
+                      Video not found
+                    </div>
+                  ) : (
                     <Vimeo
-                      key={file}
-                      video={file}
-                      className="aspect-video w-full"
+                      onError={() => setError(true)}
+                      video={project.url}
+                      className="aspect-video"
                     />
-                    <p className="whitespace-pre-line mt-10 text-base">
-                      {project.body}
-                    </p>
-                  </div>
-                ) : (
-                  <div className="relative">
+                  )}
+                  <p className="mt-5 text-black whitespace-pre-line">{project.credits}</p>
+                </div>
+              ) : (
+                project.images.map((file, index) => (
+                  <div key={file.id} className="grid grid-cols-7">
                     <img
-                      src={`${stables.MEDIA_URL}/${file.image.url}`}
-                      alt={file}
+                      src={`${stables.MEDIA_URL}/${file.image.filename}`}
+                      alt="Project Image"
                       className="col-span-4"
                     />
-                    <span className="absolute top-2 right-2 text-gray-400">
+                    <span className="col-span-3 text-right">
                       {index + 1 > 9 ? index + 1 : `0${index + 1}`}
                     </span>
                   </div>
-                );
-              })}
+                ))
+              )}
             </div>
           </>
         )}
