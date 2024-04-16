@@ -39,7 +39,7 @@ const ProjectDetail = () => {
             {/* Desktop */}
             <div className="hidden md:block">
               <ul className="flex justify-between text-lg md:grid grid-cols-12 md:grid-cols-10 gap-6 mb-6">
-                <li className="col-span-3 capitalize">{project.type}:</li>
+                <li className="col-span-3 capitalize italic">{project.type}</li>
                 <li className="col-span-4 flex w-full justify-between">
                   <span>{project.title}</span>
                   <span>{getYear(project.year)}</span>

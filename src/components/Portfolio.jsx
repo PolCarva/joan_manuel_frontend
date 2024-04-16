@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Portfolio = () => {
   const [filmProjects, setFilmProjects] = useState([]);
   const [photoProjects, setPhotoProjects] = useState([]);
-  
+
   useEffect(() => {
     const fetchFilmProjects = async () => {
       try {
@@ -31,8 +31,7 @@ const Portfolio = () => {
 
     fetchPhotoProjects();
   }, []);
-  
-  
+
   return (
     <section className="w-full h-full p-6 container mx-auto flex flex-col gap-1 ">
       {/* Film Projects */}
@@ -53,19 +52,20 @@ const Portfolio = () => {
           const year = new Date(film?.year).getFullYear();
           return (
             <Link
+              key={film?.id}
               to={`/projects/${film?.slug}`}
               className="flex hover:text-gray-400 transition-colors ease-in-out duration-200 justify-between md:grid grid-cols-12 md:grid-cols-10 gap-6 text-sm"
             >
-              <span className="italic col-span-2 hidden md:block">{newIndex}</span>
+              <span className="italic col-span-2 hidden md:block">
+                {newIndex}
+              </span>
               <span className="italic col-span-2">{film?.title}</span>
               <span className="italic col-span-2 grid-cols-2  hidden md:grid">
                 <span className="col-span-1 text-right">{year}</span>
               </span>
               <span className="italic col-span-2">{film?.project}</span>
               <span className="italic col-span-2 grid-cols-2  hidden md:grid">
-                <span className="col-span-2 text-right">
-                  01
-                </span>
+                <span className="col-span-2 text-right">01</span>
               </span>
             </Link>
           );
@@ -91,7 +91,7 @@ const Portfolio = () => {
 
           return (
             <Link
-              key={photo?.name}
+              key={photo?.id}
               to={`/projects/${photo?.slug}`}
               className="flex hover:text-gray-400 transition-colors ease-in-out duration-200 justify-between md:grid grid-cols-12 md:grid-cols-10 gap-6 text-sm"
             >
@@ -105,7 +105,9 @@ const Portfolio = () => {
               <span className="italic col-span-2">{photo?.project}</span>
               <span className="italic col-span-2 grid-cols-2  hidden md:grid">
                 <span className="col-span-2 text-right">
-                  {photo?.images.length > 9 ? photo?.images.length : `0${photo?.images.length}`}
+                  {photo?.images.length > 9
+                    ? photo?.images.length
+                    : `0${photo?.images.length}`}
                 </span>
               </span>
             </Link>
