@@ -11,7 +11,6 @@ const Contact = () => {
       try {
         const configData = await getConfigByType("contact");
         setConfig(configData);
-        console.log(configData);
       } catch (error) {
         console.error("Error fetching project:", error);
       } finally {
