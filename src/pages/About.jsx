@@ -1,53 +1,62 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MainLayout from "../components/MainLayout";
 import PasswordModal from "../components/PasswordModal";
+import { getConfigByType } from "../services/config";
 
 const About = () => {
   const [passwordModal, setPasswordModal] = useState(false);
+  const [config, setConfig] = useState(null);
+  const [loading, setLoading] = useState(null);
 
   const handleCvClick = () => {
     setPasswordModal(!passwordModal);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const configData = await getConfigByType("about");
+        setConfig(configData);
+      } catch (error) {
+        console.error("Error fetching project:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <MainLayout>
       <section className="w-full h-full p-6 container mx-auto flex flex-col gap-1 ">
-        <div className="grid grid-cols-1 md:grid-cols-10 gap-6 text-sm">
-          <div className="col-span-2 hidden md:block"></div>
-          <div className="col-span-4 font- flex flex-col gap-6 italic">
-            <p>
-              Joan Manuel Cabrera (b. Montevideo, 2001) is a filmmaker, writer
-              and photographer. His work explores beauty and wonder through
-              intimate and sensitive portraits of reality.
-            </p>
-            <p>
-              Born by the river on one side of the Atlantic, and shaped in the
-              mountains on the other, his connection and curiosity for the
-              various landscapes led him to collaborate with regional artists
-              from different fields, such as painting, fashion, and music.
-            </p>
-            <p>
-              Combining his multuple interests all in one, the art of
-              storytelling.
-            </p>
-            <p>
-              His first works linked to narrative filmmaking were the short
-              films Plaster Bodies (2021) and Together Again (2022), both
-              written and directed by Cabrera in his early college years. His
-              most recent project Simon (2023) will be his directorial debut at
-              national and international film festivals.
-            </p>
-            <button
-              className="text-gray-400 mt-4 hover:text-black transition-colors ease-in-out duration-300 w-fit"
-              onClick={handleCvClick}
-            >
-              CV.
-            </button>
-            <PasswordModal
-              isOpen={passwordModal}
-              setIsOpen={setPasswordModal}
-            />
+        {loading ? (
+          <span className="w-ful text-center italic text-gray-400">
+            Loading...
+          </span>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-10 gap-6 text-sm">
+            <div className="col-span-2 hidden md:block"></div>
+            <div className="col-span-4 font- flex flex-col gap-6 italic">
+              <p className="whitespace-pre-line">{config && config.bio}</p>
+              {config?.cv && (
+                <>
+                  <button
+                    className="text-gray-400 italic mt-4 hover:text-black transition-colors ease-in-out duration-300 w-fit"
+                    onClick={handleCvClick}
+                  >
+                    CV.
+                  </button>
+                  <PasswordModal
+                    pass={config.pass}
+                    file={config.cv.filename}
+                    isOpen={passwordModal}
+                    setIsOpen={setPasswordModal}
+                  />
+                </>
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </section>
     </MainLayout>
   );

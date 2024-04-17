@@ -1,14 +1,15 @@
 import React, { useRef, useState } from "react";
+import { stables } from "../constants/stables";
 
-const PasswordModal = ({ isOpen, setIsOpen }) => {
+const PasswordModal = ({ isOpen, setIsOpen, pass, file }) => {
   const [isPasswordSet, setIsPasswordSet] = useState(false);
   const passRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const enteredPassword = passRef.current.value;
-    if (enteredPassword === "password") {
-      const pdfUrl = "/ruta/al/archivo.pdf";
+    if (enteredPassword === pass) {
+      const pdfUrl = `${stables.MEDIA_URL}/${file}`;
       window.open(pdfUrl, "_blank");
       setIsOpen(false);
     } else {
