@@ -73,7 +73,7 @@ const ProjectDetail = () => {
                       {project.type.toLowerCase() === "film" ? (
                         <div key={project.url} className="grid grid-cols-7">
                           {error ? (
-                            <div className="col-span-4 aspect-video bg-gray-200 grid place-content-center rounded-md">
+                            <div className="col-span-4 aspect-video bg-gray-200/10 text-gray-400 italic grid place-content-center rounded-md">
                               Video not found
                             </div>
                           ) : (
@@ -103,6 +103,9 @@ const ProjectDetail = () => {
                           </div>
                         ))
                       )}
+                      <p className="mt-5 text-black whitespace-pre-line">
+                        {project.credits}
+                      </p>
                     </div>
                   </div>
                 </li>
@@ -130,22 +133,21 @@ const ProjectDetail = () => {
                       className="aspect-video"
                     />
                   )}
-                  <p className="mt-5 text-black whitespace-pre-line">{project.credits}</p>
                 </div>
               ) : (
-                project.images.map((file, index) => (
+                project.images.map((file) => (
                   <div key={file.id} className="grid grid-cols-7">
                     <img
                       src={`${stables.MEDIA_URL}/${file.image.filename}`}
                       alt="Project Image"
-                      className="col-span-4"
+                      className="col-span-7"
                     />
-                    <span className="col-span-3 text-right">
-                      {index + 1 > 9 ? index + 1 : `0${index + 1}`}
-                    </span>
                   </div>
                 ))
               )}
+              <p className="mt-5 text-black whitespace-pre-line">
+                {project.credits}
+              </p>
             </div>
           </>
         )}
@@ -154,7 +156,6 @@ const ProjectDetail = () => {
             {loading ? "Loading project..." : "Shooting location not found"}
           </p>
         )}
-        {/* Muestra un mensaje si el proyecto no se encuentra */}
       </section>
     </MainLayout>
   );
