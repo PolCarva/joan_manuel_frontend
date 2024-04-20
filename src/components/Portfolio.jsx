@@ -29,7 +29,9 @@ const Portfolio = () => {
     <section className="w-full h-full p-6 container mx-auto flex flex-col gap-1 ">
       {/* Film Projects */}
       {loading ? (
-        <span className="w-full h-full grid text-center text-gray-400 italic">Loading...</span>
+        <span className="w-full h-full grid text-center text-gray-400 italic">
+          Loading...
+        </span>
       ) : (
         <>
           <ul className="flex justify-between md:grid grid-cols-2 md:grid-cols-10 gap-6 text-sm text-gray-500 mb-6">
@@ -46,8 +48,8 @@ const Portfolio = () => {
             </li>
           </ul>
           <div className="flex flex-col">
-            {filmProjects?.map((film) => {
-              const newIndex = film.index > 9 ? film.index : `0${film.index}`;
+            {filmProjects?.map((film, index) => {
+              const newIndex = index > 9 ? index : `0${index}`;
               const year = new Date(film?.year).getFullYear();
               return (
                 <Link
@@ -84,9 +86,9 @@ const Portfolio = () => {
             </li>
           </ul>
           <div className="flex flex-col">
-            {photoProjects?.map((photo) => {
+            {photoProjects?.map((photo, index) => {
               const newIndex =
-                photo?.index > 9 ? photo?.index : `0${photo?.index}`;
+                index > 9 ? index : `0${index}`;
               const year = new Date(photo?.year).getFullYear();
 
               return (
