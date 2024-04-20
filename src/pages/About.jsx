@@ -6,7 +6,7 @@ import { getConfigByType } from "../services/config";
 const About = () => {
   const [passwordModal, setPasswordModal] = useState(false);
   const [config, setConfig] = useState(null);
-  const [loading, setLoading] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const handleCvClick = () => {
     setPasswordModal(!passwordModal);
