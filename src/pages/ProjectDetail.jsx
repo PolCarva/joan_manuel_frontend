@@ -5,12 +5,15 @@ import Vimeo from "@u-wave/react-vimeo";
 
 import { getProjectBySlug } from "../services/projects";
 import { stables } from "../constants/stables";
+import ImageSlider from "../components/ImageSlider";
 const ProjectDetail = () => {
   const { slug } = useParams();
   const [error, setError] = useState(false);
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [readMore, setReadMore] = useState(false);
+  const [showSwiper, setShowSwiper] = useState(false);
+  const [activeImage, setActiveImage] = useState(0);
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -36,6 +39,13 @@ const ProjectDetail = () => {
       <section className="w-full h-full py-6 px-6 container mx-auto gap-1 ">
         {!loading && project && (
           <>
+            {showSwiper && (
+              <ImageSlider
+                images={project.images}
+                index={activeImage}
+                close={() => setShowSwiper(false)}
+              />
+            )}
             {/* Desktop */}
             <div className="hidden md:block">
               <ul className="flex justify-between text-lg md:grid grid-cols-12 md:grid-cols-10 gap-6 mb-6">
@@ -96,6 +106,10 @@ const ProjectDetail = () => {
                               src={`${stables.MEDIA_URL}/${file.image.filename}`}
                               alt="Project Image"
                               className="col-span-4"
+                              onClick={() => {
+                                setActiveImage(index);
+                                setShowSwiper(true);
+                              }}
                             />
                             <span className="col-span-3 text-right">
                               {index + 1 > 9 ? index + 1 : `0${index + 1}`}
@@ -135,12 +149,16 @@ const ProjectDetail = () => {
                   )}
                 </div>
               ) : (
-                project.images.map((file) => (
+                project.images.map((file, index) => (
                   <div key={file.id} className="grid grid-cols-7">
                     <img
                       src={`${stables.MEDIA_URL}/${file.image.filename}`}
                       alt="Project Image"
                       className="col-span-7"
+                      onClick={() => {
+                        setActiveImage(index);
+                        setShowSwiper(true);
+                      }}
                     />
                   </div>
                 ))

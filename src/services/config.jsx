@@ -9,7 +9,7 @@ export const fetchDataWithCache = async (url, cacheKey) => {
     const currentTime = Date.now();
 
     // Check if the data is cached and not expired
-    if (lastFetch && currentTime - lastFetch < 60000) { // 120000 milliseconds = 2 minutes
+    if (lastFetch && currentTime - lastFetch < 60000) {
       const cachedData = localStorage.getItem(cacheKey);
       if (cachedData) {
         return JSON.parse(cachedData);
