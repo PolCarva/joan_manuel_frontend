@@ -28,20 +28,20 @@ const About = () => {
   }, []);
   return (
     <MainLayout>
-      <section className="w-full h-full p-6 container mx-auto flex flex-col gap-1 ">
+      <section className="w-full h-full p-3 mx-auto flex flex-col gap-1 ">
         {loading ? (
-          <span className="w-ful text-center italic text-gray-400">
+          <span className="w-ful text-center italic font-light text-gray-400">
             Loading...
           </span>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-10 gap-6 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-10 gap-6 text-xs">
             <div className="col-span-2 hidden md:block"></div>
             <div className="col-span-4 font- flex flex-col gap-6 italic">
               <p className="whitespace-pre-line">{config && config.bio}</p>
               {config?.cv && (
                 <>
                   <button
-                    className="text-gray-400 italic mt-4 hover:text-black transition-colors ease-in-out duration-300 w-fit"
+                    className="text-gray-400 font-light italic mt-4 hover:text-black transition-colors ease-in-out duration-300 w-fit"
                     onClick={handleCvClick}
                   >
                     CV.

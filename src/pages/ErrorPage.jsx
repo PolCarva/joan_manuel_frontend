@@ -4,9 +4,9 @@ import MainLayout from '../components/MainLayout'
 const ErrorPage = () => {
   return (
     <MainLayout>
-      <section className="w-full text-gray-400 h-full py-6 px-6 container mx-auto gap-1 ">
+      <section className="w-full text-gray-400 h-full py-3 px-6  mx-auto gap-1 ">
         <h1 className="text-lg font-bold text-center">404</h1>
-        <p className="text-center text-sm">Page not found</p>
+        <p className="text-center text-xs">Page not found</p>
       </section>
     </MainLayout>
   )

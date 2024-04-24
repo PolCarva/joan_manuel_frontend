@@ -9,6 +9,12 @@ export default {
       colors: {
         "black-hover": "#1f1f1f",
       },
+      fontFamily: {
+        "inter": ["Inter", "sans-serif"],
+      },
+      fontSize: {
+        "xs": ".625rem",
+      },
     },
   },
   plugins: [],

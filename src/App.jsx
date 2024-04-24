@@ -5,11 +5,13 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ProjectDetail from "./pages/ProjectDetail";
 import ErrorPage from "./pages/ErrorPage";
+import { useEffect } from "react";
 
 function App() {
+
   return (
     <Router>
-      <div>
+      <div className="font-inter">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Home />} />

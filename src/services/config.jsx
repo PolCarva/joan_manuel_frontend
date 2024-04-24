@@ -37,7 +37,7 @@ export const fetchDataWithCache = async (url, cacheKey) => {
 
 // Obtener configuración por tipo
 export const getConfigByType = async (type) => {
-  const url = `${stables.BASE_URL}/config/by-type/${type}`;
+  const url = `${stables.BASE_URL}/config/by-type/${type}?limit=1000`;
   const cacheKey = `config_${type}`;
   return await fetchDataWithCache(url, cacheKey);
 };

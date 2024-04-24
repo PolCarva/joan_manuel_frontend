@@ -36,7 +36,7 @@ const ProjectDetail = () => {
 
   return (
     <MainLayout>
-      <section className="w-full h-full py-6 px-6 container mx-auto gap-1 ">
+      <section className="w-full h-full py-3 px-6  mx-auto gap-1">
         {!loading && project && (
           <>
             {showSwiper && (
@@ -48,7 +48,7 @@ const ProjectDetail = () => {
             )}
             {/* Desktop */}
             <div className="hidden md:block">
-              <ul className="flex justify-between text-lg md:grid grid-cols-12 md:grid-cols-10 gap-6 mb-6">
+              <ul className="flex justify-between text-xs md:grid grid-cols-12 md:grid-cols-10 gap-6 mb-6">
                 <li className="col-span-3 capitalize italic">{project.type}</li>
                 <li className="col-span-4 flex w-full justify-between">
                   <span>{project.title}</span>
@@ -58,8 +58,8 @@ const ProjectDetail = () => {
                   {project.project}
                 </li>
               </ul>
-              <ul className="flex justify-between md:grid grid-cols-12 md:grid-cols-10 gap-6 text-sm text-gray-500 mb-6">
-                <li className="col-span-3 grid grid-cols-3 italic text-gray-400 text-justify">
+              <ul className="flex justify-between md:grid grid-cols-12 md:grid-cols-10 gap-6 text-xs text-gray-500 mb-6">
+                <li className="col-span-3 grid grid-cols-3 italic font-light text-gray-400 text-justify">
                   <span className="col-span-2 flex flex-col gap-5">
                     {project.description}
                     {readMore && (
@@ -97,7 +97,6 @@ const ProjectDetail = () => {
                           <span className="col-span-3 text-right text-gray-400">
                             01
                           </span>
-                          <p className="mt-5 text-black">{project.credits}</p>
                         </div>
                       ) : (
                         project.images.map((file, index) => (
@@ -129,8 +128,8 @@ const ProjectDetail = () => {
             {/* Mobile */}
             <div className="flex flex-col gap-5 md:hidden">
               <div className="flex justify-between w-full">
-                <h2 className="text-sm">{project.title}</h2>
-                <span className="text-sm text-gray-400">
+                <h2 className="text-xs">{project.title}</h2>
+                <span className="text-xs text-gray-400">
                   {getYear(project.year)}
                 </span>
               </div>

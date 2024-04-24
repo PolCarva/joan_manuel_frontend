@@ -9,7 +9,7 @@ export const fetchDataWithCache = async (url, cacheKey, isOne = false) => {
     const currentTime = Date.now();
 
     // Check if the data is cached and not expired
-    if (lastFetch && currentTime - lastFetch < 60000) { // 120000 milliseconds = 2 minutes
+    if (lastFetch && currentTime - lastFetch < 60000) { // 60000 milliseconds = 1 minutes
       const cachedData = localStorage.getItem(cacheKey);
       if (cachedData) {
         return JSON.parse(cachedData);
@@ -36,21 +36,21 @@ export const fetchDataWithCache = async (url, cacheKey, isOne = false) => {
 
 // Obtener proyecto por slug
 export const getProjectBySlug = async (slug) => {
-  const url = `${stables.BASE_URL}/projects/by-slug/${slug}`;
+  const url = `${stables.BASE_URL}/projects/by-slug/${slug}?limit=1000`;
   const cacheKey = `project_${slug}`;
   return await fetchDataWithCache(url, cacheKey, true);
 };
 
 // Obtener proyectos por tipo
 export const getProjectsByType = async (type) => {
-  const url = `${stables.BASE_URL}/projects/by-type/${type}`;
+  const url = `${stables.BASE_URL}/projects/by-type/${type}?limit=1000`;
   const cacheKey = `projects_${type}`;
   return await fetchDataWithCache(url, cacheKey);
 };
 
 // Obtener todos los proyectos
 export const getAllProjects = async () => {
-  const url = `${stables.BASE_URL}/projects`;
+  const url = `${stables.BASE_URL}/projects?limit=1000`;
   const cacheKey = 'all_projects';
   return await fetchDataWithCache(url, cacheKey);
 };

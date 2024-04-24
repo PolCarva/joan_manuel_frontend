@@ -23,13 +23,13 @@ const Contact = () => {
 
   return (
     <MainLayout>
-      <section className="w-full h-full p-6 container mx-auto flex flex-col gap-1 ">
+      <section className="w-full h-full p-2 mx-auto flex flex-col gap-1 ">
         {loading ? (
           <span className="w-full text-center text-gray-400 italic">
             Loading...
           </span>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-10 gap-6 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-10 gap-6 text-xs">
             <div className="col-span-2 hidden md:block"></div>
             <div className="col-span-4 font- flex flex-col gap-6">
               <div className="flex flex-col">

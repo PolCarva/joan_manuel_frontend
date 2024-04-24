@@ -6,13 +6,13 @@ const Header = () => {
   const location = useLocation();
 
   return (
-    <header className="w-full h-full p-6 container mx-auto">
+    <header className="w-full h-full p-3 mx-auto">
       <nav className="w-full">
-        <ul className="flex justify-between md:grid grid-cols-12 md:grid-cols-10 gap-6 text-sm">
+        <ul className="flex justify-between md:grid grid-cols-12 md:grid-cols-10 gap-6 text-xs">
           <li className="col-span-2 flex">
             <Link
               to={"/"}
-              className="hover:text-gray-500 flex-1 transition-colors ease-in-out font-semibold duration-200"
+              className="hover:text-gray-500 flex-1 transition-colors ease-in-out duration-200"
             >
               JOAN MANUEL
             </Link>
