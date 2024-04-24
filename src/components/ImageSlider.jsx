@@ -37,8 +37,8 @@ const ImageSlider = ({ images, index, close }) => {
             />
           </SwiperSlide>
         ))}
-        <div className="swiper-button-prev text-white" onClick={handleNavigationClick} />
-        <div className="swiper-button-next text-white" onClick={handleNavigationClick} />
+        <div className="hidden md:block swiper-button-prev text-white" onClick={handleNavigationClick} />
+        <div className="hidden md:block swiper-button-next text-white" onClick={handleNavigationClick} />
       </Swiper>
     </div>
   );
