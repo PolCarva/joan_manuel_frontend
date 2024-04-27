@@ -25,15 +25,15 @@ const Contact = () => {
     <MainLayout>
       <section className="w-full h-full p-2 mx-auto flex flex-col gap-1  max-w-[calc(100svw-5px)]">
         {loading ? (
-          <span className="w-full text-center font-light text-gray-400">
-          Loading.
+          <span className="w-full text-xs text-center font-light text-xs text-gray-400">
+            Loading.
           </span>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-10 gap-6 text-xs">
             <div className="col-span-2 hidden md:block"></div>
             <div className="col-span-4 font- flex flex-col gap-6">
               <div className="flex flex-col">
-                <h2 className="text-xl font-bold">{config.displayName}</h2>
+                <h2 className="font-bold text-sm">{config.displayName}</h2>
                 <span className="text-gray-400 italic">{config.status}</span>
                 <a
                   href={`mailto:${config.mail}`}
@@ -43,7 +43,7 @@ const Contact = () => {
                   {config.mail}
                 </a>
               </div>
-              <div className="flex flex-col text-gray-400">
+              <div className="flex flex-col font-light text-gray-400">
                 <p>{config.city}</p>
                 <a
                   className="hover:text-black transition-colors ease-in-out duration-300 w-max"
