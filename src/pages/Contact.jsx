@@ -25,7 +25,7 @@ const Contact = () => {
     <MainLayout>
       <section className="w-full h-full p-2 mx-auto flex flex-col gap-1  max-w-[calc(100svw-5px)]">
         {loading ? (
-          <span className="w-full text-xs text-center font-light text-xs text-gray-400">
+          <span className="w-full text-center font-light text-xs text-gray-400">
             Loading.
           </span>
         ) : (
