@@ -59,7 +59,7 @@ const ProjectDetail = () => {
                 </li>
               </ul>
               <ul className="flex justify-between md:grid grid-cols-12 md:grid-cols-10 gap-6 text-xs text-gray-500 mb-6">
-                <li className="col-span-3 grid grid-cols-3 italic text-gray-400 text-justify">
+                <li className="col-span-3 grid md:w-10/12 grid-cols-3 italic text-gray-400 text-justify">
                   <span className="col-span-2 flex flex-col gap-5">
                     {project.description}
                     {readMore && (

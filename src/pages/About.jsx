@@ -36,7 +36,7 @@ const About = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-10 gap-6 text-xs">
             <div className="col-span-2 hidden md:block"></div>
-            <div className="col-span-4 font- flex flex-col gap-6 italic">
+            <div className="col-span-4 md:w-10/12 flex flex-col gap-6 italic">
               <p className="whitespace-pre-line">{config && config.bio}</p>
               {config?.cv && (
                 <>
