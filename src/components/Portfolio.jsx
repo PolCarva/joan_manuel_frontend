@@ -26,19 +26,20 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <section className="w-full h-full p-3 mx-auto flex flex-col gap-1 ">
+    <section className="w-full h-full p-3 mx-auto flex flex-col gap-1 max-w-[calc(100svw-5px)]">
       {/* Film Projects */}
       {loading ? (
-        <span className="w-ful text-center font-light text-gray-400">
+        <span className="w-full text-center font-light text-gray-400">
           Loading.
         </span>
       ) : (
         <>
-          <ul className="flex justify-between md:grid grid-cols-2 md:grid-cols-10 gap-6 text-xs mb-6">
+          <ul className="flex justify-between italic font-light md:grid grid-cols-12 md:grid-cols-10 gap-6 text-xs mb-6">
             <li className="italic col-span-2 hidden md:block">Index</li>
             <li className="italic col-span-2">Film</li>
-            <li className="italic col-span-2 grid-cols-2 grid">
-              <span className="md:col-span-1 col-span-2 text-right">Year</span>
+            <li className="italic col-span-2 grid-cols-3 grid">
+              <div></div>
+              <span className="md:col-span-1 col-span-2 text-center">Year</span>
             </li>
             <li className="italic col-span-2 text-right hidden md:grid md:text-left">
               Project
@@ -62,12 +63,13 @@ const Portfolio = () => {
                 >
                   <span className="col-span-2 hidden md:block">{newIndex}</span>
                   <span className="col-span-2">{film?.title}</span>
-                  <span className="col-span-2 grid-cols-2 grid">
-                    <span className="col-span-2 md:col-span-1 text-right">
+                  <span className="col-span-2 grid-cols-3 grid">
+                    <div></div>
+                    <span className="md:col-span-1 col-span-2 text-center">
                       {year}
                     </span>
                   </span>
-                  <span className="col-span-2 hidden md:grid">
+                  <span className="col-span-2 hidden md:grid italic font-light">
                     {film?.project}
                   </span>
                   <span className="col-span-2 grid-cols-2  hidden md:grid">
@@ -79,7 +81,7 @@ const Portfolio = () => {
           </div>
 
           {/* Photography Projects */}
-          <ul className="flex justify-between md:grid grid-cols-12 md:grid-cols-10 gap-6 text-xs my-6">
+          <ul className="flex justify-between italic font-light md:grid grid-cols-12 md:grid-cols-10 gap-6 text-xs mt-12 mb-6">
             <li className="italic col-span-2 hidden md:block"></li>
             <li className="italic col-span-2">Photography</li>
             <li className="italic col-span-2 grid-cols-2 hidden md:grid">
@@ -106,12 +108,13 @@ const Portfolio = () => {
                 >
                   <span className="col-span-2 hidden md:block">{newIndex}</span>
                   <span className="col-span-2">{photo?.title}</span>
-                  <span className="col-span-2 grid-cols-2 grid">
-                    <span className="col-span-2 md:col-span-1 text-right">
+                  <span className="col-span-2 grid-cols-3 grid">
+                    <div></div>
+                    <span className="md:col-span-1 col-span-2 text-center">
                       {year}
                     </span>
                   </span>
-                  <span className="col-span-2 hidden md:grid">
+                  <span className="col-span-2 hidden md:grid italic font-light">
                     {photo?.project}
                   </span>
                   <span className="col-span-2 grid-cols-2  hidden md:grid">

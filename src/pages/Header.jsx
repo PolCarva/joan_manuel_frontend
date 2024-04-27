@@ -6,9 +6,9 @@ const Header = () => {
   const location = useLocation();
 
   return (
-    <header className="w-full h-full p-3 mx-auto">
+    <header className="w-full h-full p-3 mb-12 max-w-[calc(100svw-5px)]">
       <nav className="w-full">
-        <ul className="flex justify-between md:grid grid-cols-12 md:grid-cols-10 gap-6 text-xs">
+        <ul className="flex justify-between md:grid grid-cols-12 md:grid-cols-10 gap-6 text-xs font-light">
           <li className="col-span-2 flex">
             <Link
               to={"/"}
@@ -17,7 +17,7 @@ const Header = () => {
               JOAN MANUEL
             </Link>
           </li>
-          <li className="col-span-4 flex">
+          <li className="col-span-4 hidden md:flex">
             <Link
               className={`${
                 location.pathname === "/about" && "underline"
@@ -27,7 +27,7 @@ const Header = () => {
               About
             </Link>
           </li>
-          <li className="col-span-4 flex">
+          <li className="col-span-2 flex">
             <Link
               className={`${
                 location.pathname === "/contact" && "underline"

@@ -36,7 +36,7 @@ const ProjectDetail = () => {
 
   return (
     <MainLayout>
-      <section className="w-full h-full py-3 px-6  mx-auto gap-1">
+      <section className="w-full h-full py-3 px-6  mx-auto gap-1  max-w-[calc(100svw-5px)]">
         {!loading && project && (
           <>
             {showSwiper && (
@@ -59,7 +59,7 @@ const ProjectDetail = () => {
                 </li>
               </ul>
               <ul className="flex justify-between md:grid grid-cols-12 md:grid-cols-10 gap-6 text-xs text-gray-500 mb-6">
-                <li className="col-span-3 grid grid-cols-3 italic font-light text-gray-400 text-justify">
+                <li className="col-span-3 grid grid-cols-3 italic text-gray-400 text-justify">
                   <span className="col-span-2 flex flex-col gap-5">
                     {project.description}
                     {readMore && (
@@ -77,7 +77,7 @@ const ProjectDetail = () => {
                     )}
                   </span>
                 </li>
-                <li className="col-span-7 ">
+                <li className="col-span-7">
                   <div className="min-h-[50svh] flex flex-col gap-5">
                     <div className="min-h-[50vh] flex flex-col gap-5">
                       {project.type.toLowerCase() === "film" ? (
@@ -116,7 +116,7 @@ const ProjectDetail = () => {
                           </div>
                         ))
                       )}
-                      <p className="mt-5 text-black whitespace-pre-line">
+                      <p className="mt-5 text-xs text-black whitespace-pre-line">
                         {project.credits}
                       </p>
                     </div>
@@ -162,7 +162,7 @@ const ProjectDetail = () => {
                   </div>
                 ))
               )}
-              <p className="mt-5 text-black whitespace-pre-line">
+              <p className="mt-5 text-xs text-black whitespace-pre-line">
                 {project.credits}
               </p>
             </div>
