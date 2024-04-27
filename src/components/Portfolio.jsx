@@ -12,7 +12,6 @@ const Portfolio = () => {
       setLoading(true);
       try {
         const films = await getProjectsByType("film");
-        console.log(films);
         setFilmProjects(films.sort((a, b) => new Date(b.year) - new Date(a.year)));
         const photos = await getProjectsByType("photography");
         setPhotoProjects(photos.sort((a, b) => new Date(b.year) - new Date(a.year)));
