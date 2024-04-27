@@ -25,8 +25,8 @@ const Contact = () => {
     <MainLayout>
       <section className="w-full h-full p-2 mx-auto flex flex-col gap-1 ">
         {loading ? (
-          <span className="w-full text-center text-gray-400 italic">
-            Loading...
+          <span className="w-ful text-center font-light text-gray-400">
+          Loading.
           </span>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-10 gap-6 text-xs">

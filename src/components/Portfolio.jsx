@@ -29,8 +29,8 @@ const Portfolio = () => {
     <section className="w-full h-full p-3 mx-auto flex flex-col gap-1 ">
       {/* Film Projects */}
       {loading ? (
-        <span className="w-full h-full grid text-center font-light text-gray-400 italic">
-          Loading...
+        <span className="w-ful text-center font-light text-gray-400">
+          Loading.
         </span>
       ) : (
         <>
@@ -50,7 +50,9 @@ const Portfolio = () => {
           <div className="flex flex-col">
             {filmProjects?.map((film, index) => {
               const newIndex =
-                filmProjects.length - 1 - index > 9 ? index : `0${filmProjects.length - 1 - index}`;
+                filmProjects.length - 1 - index > 9
+                  ? index
+                  : `0${filmProjects.length - 1 - index}`;
               const year = new Date(film?.year).getFullYear();
               return (
                 <Link
@@ -61,9 +63,13 @@ const Portfolio = () => {
                   <span className="col-span-2 hidden md:block">{newIndex}</span>
                   <span className="col-span-2">{film?.title}</span>
                   <span className="col-span-2 grid-cols-2 grid">
-                    <span className="col-span-2 md:col-span-1 text-right">{year}</span>
+                    <span className="col-span-2 md:col-span-1 text-right">
+                      {year}
+                    </span>
                   </span>
-                  <span className="col-span-2 hidden md:grid">{film?.project}</span>
+                  <span className="col-span-2 hidden md:grid">
+                    {film?.project}
+                  </span>
                   <span className="col-span-2 grid-cols-2  hidden md:grid">
                     <span className="col-span-2 text-right">01</span>
                   </span>
@@ -101,9 +107,13 @@ const Portfolio = () => {
                   <span className="col-span-2 hidden md:block">{newIndex}</span>
                   <span className="col-span-2">{photo?.title}</span>
                   <span className="col-span-2 grid-cols-2 grid">
-                    <span className="col-span-2 md:col-span-1 text-right">{year}</span>
+                    <span className="col-span-2 md:col-span-1 text-right">
+                      {year}
+                    </span>
                   </span>
-                  <span className="col-span-2 hidden md:grid">{photo?.project}</span>
+                  <span className="col-span-2 hidden md:grid">
+                    {photo?.project}
+                  </span>
                   <span className="col-span-2 grid-cols-2  hidden md:grid">
                     <span className="col-span-2 text-right">
                       {photo?.images.length > 9
