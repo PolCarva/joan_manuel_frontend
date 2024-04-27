@@ -36,7 +36,7 @@ const ProjectDetail = () => {
 
   return (
     <MainLayout>
-      <section className="w-full h-full py-3 px-6  mx-auto gap-1  max-w-[calc(100svw-5px)]">
+      <section className="w-full h-full p-3  mx-auto gap-1  max-w-[calc(100svw-5px)]">
         {!loading && project && (
           <>
             {showSwiper && (
