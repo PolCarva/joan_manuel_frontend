@@ -169,8 +169,8 @@ const ProjectDetail = () => {
           </>
         )}
         {!project && (
-          <p className="text-center text-xs h-[60svh] grid place-content-center text-gray-400">
-            {loading ? "Loading project..." : "Shooting location not found"}
+          <p className="w-full italic text-xs text-center text-gray-400">
+            {loading ? "Loading." : "Shooting location not found"}
           </p>
         )}
       </section>

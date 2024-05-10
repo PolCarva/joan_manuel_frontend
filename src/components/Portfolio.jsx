@@ -17,7 +17,7 @@ const Portfolio = () => {
         setPhotoProjects(photos.sort((a, b) => new Date(b.year) - new Date(a.year)));
       } catch (error) {
         console.error("Error fetching projects:", error);
-      } finally {
+     } finally {
         setLoading(false);
       }
     };
@@ -29,12 +29,12 @@ const Portfolio = () => {
     <section className="w-full h-full p-3 mx-auto flex flex-col gap-1 max-w-[calc(100svw-5px)]">
       {/* Film Projects */}
       {loading ? (
-        <span className="w-full text-xs text-center font-light text-gray-400">
+        <span className="w-full italic text-xs text-center text-gray-400">
           Loading.
         </span>
       ) : (
         <>
-          <ul className="flex justify-between italic font-light md:grid grid-cols-12 md:grid-cols-10 gap-6 text-xs mb-6">
+          <ul className="flex justify-between italic md:grid grid-cols-12 md:grid-cols-10 gap-6 text-xs mb-6">
             <li className="italic col-span-2 hidden md:block">Index</li>
             <li className="italic col-span-2">Film</li>
             <li className="italic col-span-2 grid-cols-3 grid">
@@ -69,7 +69,7 @@ const Portfolio = () => {
                       {year}
                     </span>
                   </span>
-                  <span className="col-span-2 hidden md:grid italic font-light">
+                  <span className="col-span-2 hidden md:grid italic">
                     {film?.project}
                   </span>
                   <span className="col-span-2 grid-cols-2  hidden md:grid">
@@ -81,7 +81,7 @@ const Portfolio = () => {
           </div>
 
           {/* Photography Projects */}
-          <ul className="flex justify-between italic font-light md:grid grid-cols-12 md:grid-cols-10 gap-6 text-xs mt-12 mb-6">
+          <ul className="flex justify-between italic md:grid grid-cols-12 md:grid-cols-10 gap-6 text-xs mt-12 mb-6">
             <li className="italic col-span-2 hidden md:block"></li>
             <li className="italic col-span-2">Photography</li>
             <li className="italic col-span-2 grid-cols-2 hidden md:grid">
@@ -114,7 +114,7 @@ const Portfolio = () => {
                       {year}
                     </span>
                   </span>
-                  <span className="col-span-2 hidden md:grid italic font-light">
+                  <span className="col-span-2 hidden md:grid italic">
                     {photo?.project}
                   </span>
                   <span className="col-span-2 grid-cols-2  hidden md:grid">

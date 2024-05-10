@@ -6,9 +6,9 @@ const Header = () => {
   const location = useLocation();
 
   return (
-    <header className="w-full h-full p-3 mb-12 max-w-[calc(100svw-5px)]">
+    <header className="w-full h-full p-3 mb-6 max-w-[calc(100svw-5px)]">
       <nav className="w-full">
-        <ul className="flex justify-between md:grid grid-cols-12 md:grid-cols-10 gap-6 text-xs font-light">
+        <ul className="flex justify-between md:grid grid-cols-12 md:grid-cols-10 gap-6 text-xs">
           <li className="col-span-2 flex">
             <Link
               to={"/"}
