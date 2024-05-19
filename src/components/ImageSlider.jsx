@@ -2,6 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { stables } from "../constants/stables";
+import { Keyboard } from "swiper/modules";
 
 const ImageSlider = ({ images, index, close }) => {
 
@@ -17,6 +18,11 @@ const ImageSlider = ({ images, index, close }) => {
         spaceBetween={50}
         slidesPerView={1}
         initialSlide={index}
+        keyboard={{
+          enabled: true,
+        }}
+        
+        modules={[Keyboard]}
 
       >
         {images.map((file, index) => (
