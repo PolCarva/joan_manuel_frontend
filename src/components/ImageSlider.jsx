@@ -42,6 +42,7 @@ const ImageSlider = ({ images, index, close }) => {
         {images.map((file, index) => (
           <SwiperSlide key={index} className="w-full h-full">
             <img
+            onContextMenu={(e) => e.preventDefault()}
               className="w-full h-full object-contain"
               src={`${stables.MEDIA_URL}/${file.image.filename}`}
               alt={`${file.image.alt}`}

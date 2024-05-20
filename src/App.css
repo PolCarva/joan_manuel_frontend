@@ -37,3 +37,12 @@ iframe {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+/* Imágenes */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}

@@ -105,6 +105,7 @@ const ProjectDetail = () => {
                               src={`${stables.MEDIA_URL}/${file.image.filename}`}
                               alt="Project Image"
                               className="col-span-4"
+                              onContextMenu={(e) => e.preventDefault()}
                               onClick={() => {
                                 setActiveImage(index);
                                 setShowSwiper(true);
