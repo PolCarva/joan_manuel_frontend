@@ -150,6 +150,8 @@ const ProjectDetail = () => {
                       url={project.url}
                       controls
                       className="aspect-video"
+                      width={"100%"}
+                      height={"100%"}
                     />
                   )}
                 </div>
