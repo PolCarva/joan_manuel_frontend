@@ -92,8 +92,6 @@ const ProjectDetail = () => {
                                 onError={() => setError(true)}
                                 url={project.url}
                                 controls
-                                muted
-                                playing
                                 width={"100%"}
                                 height={"100%"}
                               />
@@ -151,8 +149,6 @@ const ProjectDetail = () => {
                       onError={() => setError(true)}
                       url={project.url}
                       controls
-                      muted
-                      playing
                       className="aspect-video"
                     />
                   )}
