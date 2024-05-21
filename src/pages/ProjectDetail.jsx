@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "../components/MainLayout";
 import { useParams } from "react-router-dom";
-import Vimeo from "@u-wave/react-vimeo";
+import ReactPlayer from "react-player";
 
 import { getProjectBySlug } from "../services/projects";
 import { stables } from "../constants/stables";
@@ -87,11 +87,17 @@ const ProjectDetail = () => {
                               Video not found
                             </div>
                           ) : (
-                            <Vimeo
-                              onError={() => setError(true)}
-                              video={project.url}
-                              className="aspect-video col-span-4"
-                            />
+                            <div className="aspect-video col-span-4">
+                              <ReactPlayer
+                                onError={() => setError(true)}
+                                url={project.url}
+                                controls
+                                muted
+                                playing
+                                width={"100%"}
+                                height={"100%"}
+                              />
+                            </div>
                           )}
 
                           <span className="col-span-3 text-right text-gray-400">
@@ -141,9 +147,12 @@ const ProjectDetail = () => {
                       Video not found
                     </div>
                   ) : (
-                    <Vimeo
+                    <ReactPlayer
                       onError={() => setError(true)}
-                      video={project.url}
+                      url={project.url}
+                      controls
+                      muted
+                      playing
                       className="aspect-video"
                     />
                   )}
