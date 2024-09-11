@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import MainLayout from "../components/MainLayout";
 import { useParams } from "react-router-dom";
-import ReactPlayer from "react-player";
-
 import { getProjectBySlug } from "../services/projects";
 import { stables } from "../constants/stables";
 import ImageSlider from "../components/ImageSlider";
+
 const ProjectDetail = () => {
   const { slug } = useParams();
   const [error, setError] = useState(false);
@@ -32,6 +31,45 @@ const ProjectDetail = () => {
 
   const getYear = (date) => {
     return new Date(date).getFullYear();
+  };
+
+  // Helper function to render video based on URL type
+  const renderVideo = (url) => {
+    try {
+      const vimeoRegex = /vimeo\.com\/(\d+)/;
+      const youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+
+      if (vimeoRegex.test(url)) {
+        const videoId = url.match(vimeoRegex)[1];
+        return (
+          <iframe
+            src={`https://player.vimeo.com/video/${videoId}`}
+            width="100%"
+            height="100%"
+            frameBorder="0"
+            allow="autoplay; fullscreen"
+            allowFullScreen
+          ></iframe>
+        );
+      } else if (youtubeRegex.test(url)) {
+        const videoId = url.match(youtubeRegex)[1];
+        return (
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}`}
+            width="100%"
+            height="100%"
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+          ></iframe>
+        );
+      } else {
+        throw new Error("Unsupported video URL");
+      }
+    } catch {
+      setError(true);
+      return <div className="col-span-4 aspect-video bg-gray-200/10 text-gray-400 italic grid place-content-center rounded-md">Video not found</div>;
+    }
   };
 
   return (
@@ -88,16 +126,9 @@ const ProjectDetail = () => {
                             </div>
                           ) : (
                             <div className="aspect-video col-span-4">
-                              <ReactPlayer
-                                onError={() => setError(true)}
-                                url={project.url}
-                                controls
-                                width={"100%"}
-                                height={"100%"}
-                              />
+                              {renderVideo(project.url)}
                             </div>
                           )}
-
                           <span className="col-span-3 text-right text-gray-400">
                             01
                           </span>
@@ -145,14 +176,7 @@ const ProjectDetail = () => {
                       Video not found
                     </div>
                   ) : (
-                    <ReactPlayer
-                      onError={() => setError(true)}
-                      url={project.url}
-                      controls
-                      className="aspect-video"
-                      width={"100%"}
-                      height={"100%"}
-                    />
+                    renderVideo(project.url)
                   )}
                 </div>
               ) : (
