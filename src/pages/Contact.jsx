@@ -60,6 +60,7 @@ const Contact = () => {
               <div className="flex flex-col text-gray-400 mt-16">
                 {config.socialMedia.map((el) => (
                   <a
+                    key={el.url}
                     className="hover:text-black transition-colors lowercase ease-in-out duration-300 w-max"
                     href={el.url}
                     rel="noreferrer"

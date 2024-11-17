@@ -1,6 +1,7 @@
 // services/projects.js
 
 import { stables } from "../constants/stables";
+import { filmProjects, photoProjects, allProjects } from "../data/data";
 
 // Función genérica para obtener datos de la API con caching
 export const fetchDataWithCache = async (url, cacheKey, isOne = false) => {
@@ -9,7 +10,8 @@ export const fetchDataWithCache = async (url, cacheKey, isOne = false) => {
     const currentTime = Date.now();
 
     // Check if the data is cached and not expired
-    if (lastFetch && currentTime - lastFetch < 60000) { // 60000 milliseconds = 1 minutes
+    if (lastFetch && currentTime - lastFetch < 60000) {
+      // 60000 milliseconds = 1 minutes
       const cachedData = localStorage.getItem(cacheKey);
       if (cachedData) {
         return JSON.parse(cachedData);
@@ -33,9 +35,10 @@ export const fetchDataWithCache = async (url, cacheKey, isOne = false) => {
   }
 };
 
-
 // Obtener proyecto por slug
 export const getProjectBySlug = async (slug) => {
+  return allProjects.find((project) => project.slug === slug);
+
   const url = `${stables.BASE_URL}/projects/by-slug/${slug}?limit=1000`;
   const cacheKey = `project_${slug}`;
   return await fetchDataWithCache(url, cacheKey, true);
@@ -43,6 +46,14 @@ export const getProjectBySlug = async (slug) => {
 
 // Obtener proyectos por tipo
 export const getProjectsByType = async (type) => {
+  switch (type) {
+    case "film":
+      return filmProjects;
+    case "photography":
+      return photoProjects;
+    default:
+      throw new Error("Invalid project type");
+  }
   const url = `${stables.BASE_URL}/projects/by-type/${type}?limit=1000`;
   const cacheKey = `projects_${type}`;
   return await fetchDataWithCache(url, cacheKey);
@@ -50,7 +61,8 @@ export const getProjectsByType = async (type) => {
 
 // Obtener todos los proyectos
 export const getAllProjects = async () => {
+  return allProjects;
   const url = `${stables.BASE_URL}/projects?limit=1000`;
-  const cacheKey = 'all_projects';
+  const cacheKey = "all_projects";
   return await fetchDataWithCache(url, cacheKey);
 };
