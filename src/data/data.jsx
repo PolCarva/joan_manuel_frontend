@@ -862,7 +862,7 @@ export const contactData = {
   title: "Contact",
   displayName: "JOAN MANUEL CABRERA",
   status: "Director / Photographer",
-  mail: "manuelcabreraduarte@gmail.com",
+  mail: "joanmanuelcabrera.uy@gmail.com",
   city: "Montevideo, Uruguay",
   phone: "(+598) 92 518 685",
   socialMedia: [
