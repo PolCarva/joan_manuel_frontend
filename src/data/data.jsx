@@ -1,11 +1,28 @@
 
 export const filmProjects = [
   {
+    id: "66240b8b15bf51202506de02",
+    title: "Desfasaje Crónico",
+    slug: "desfasaje-cronico",
+    type: "film",
+    year: "2024-10-13T12:00:00.000Z",
+    project: "Fashion Film",
+    url: "https://vimeo.com/1054197741",
+    images: [],
+    credits:
+    "Director: Joan Manuel Cabrera\nDirector of Photography: Joan Manuel Cabrera\n\nExecutive Producer: Sara Pedocchi\nProduction Company: Senobia Estudio\nProducer: Sara Pedocchi\n\nFirst AC: Belén Morales\nSecond AC: Nahuen Olivera\n\nCreative Direction: Sara Pedocchi\nArt Direction: Sally Chen\nArt Assistant: Sara Pedocchi\n\nCostume Design: Sally Chen, Meteo, Sara Pedocchi, Studio Tres\nHair & Makeup: Renata Mastrángelo\n\nMusic & Sound Design: Felipe Decker\nPost Production: Senobia Estudio\nEditor: Joan Manuel Cabrera\nColorist: Joan Manuel Cabrera\n\nBack: Julieta Fleitas\n\nStarring:\nAzul Vega as Hei\nFrancisca Piperno as Judge 1\nSara Pedocchi as Judge 2\nJoan Manuel Cabrera as Judge 3\n\nLocation: Espacio Idus\n\nAll content copyright the artist. © 2024 JOAN MANUEL CABRERA. Site Credit.",
+    description:
+      "",
+    read_more: "",
+    createdAt: "2024-04-20T18:38:03.540Z",
+    updatedAt: "2024-09-16T20:09:13.210Z",
+  },
+  {
     id: "66240b8b15bf51a31831de26",
     title: "Going Away",
     slug: "going-away",
     type: "film",
-    year: "2024-04-13T12:00:00.000Z",
+    year: "2024-09-13T12:00:00.000Z",
     project: "Fashion Film",
     url: "https://vimeo.com/918754576",
     images: [],
