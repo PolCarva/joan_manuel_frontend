@@ -35,9 +35,9 @@ const Intro = ({ onFinish }) => {
                 clearInterval(interval);
                 setTimeout(() => {
                     onFinish(); // Ocultar intro
-                }, 200); // Pequeña pausa final
+                }, 100); // Pequeña pausa final
             }
-        }, 200); // Velocidad de cambio (100ms)
+        }, 100); // Velocidad de cambio (100ms)
 
         return () => clearInterval(interval);
     }, [imagesLoaded, totalImages, onFinish]);
