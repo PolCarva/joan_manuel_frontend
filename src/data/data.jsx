@@ -10,7 +10,7 @@ export const filmProjects = [
     url: "https://vimeo.com/1054197741",
     images: [],
     credits:
-    "Director: Joan Manuel Cabrera\nDirector of Photography: Joan Manuel Cabrera\n\nExecutive Producer: Sara Pedocchi\nProduction Company: Senobia Estudio\nProducer: Sara Pedocchi\n\nFirst AC: Belén Morales\nSecond AC: Nahuen Olivera\n\nCreative Direction: Sara Pedocchi\nArt Direction: Sally Chen\nArt Assistant: Sara Pedocchi\n\nCostume Design: Sally Chen, Meteo, Sara Pedocchi, Studio Tres\nHair & Makeup: Renata Mastrángelo\n\nMusic & Sound Design: Felipe Decker\nPost Production: Senobia Estudio\nEditor: Joan Manuel Cabrera\nColorist: Joan Manuel Cabrera\n\nBack: Julieta Fleitas\n\nStarring:\nAzul Vega as Hei\nFrancisca Piperno as Judge 1\nSara Pedocchi as Judge 2\nJoan Manuel Cabrera as Judge 3\n\nLocation: Espacio Idus\n\nAll content copyright the artist. © 2024 JOAN MANUEL CABRERA. Site Credit.",
+    "Producer: Sara Pedocchi\n\nDirector: Joan Manuel Cabrera\nDP: Joan Manuel Cabrera\nFirst AC: Belén Morales\nSecond AC: Nahuen Olivera\n\nCreative Direction: Sara Pedocchi\nArt Director: Sally Chen\nArt Assistant: Sara Pedocchi\nCostume Designer: Sally Chen, Meteo, Sara Pedocchi, Studio Tres\nHair & Makeup: Renata Mastrángelo\n\nMusic and Sounddesign: Felipe Decker\n\nPost Production: Senobia Estudio\nEditor: Joan Manuel Cabrera\nColour Grading: Joan Manuel Cabrera\nBack: Julieta Fleitas\n\nStarring:\nAzul Vega as Hei\nFrancisca Piperno as Judge 1\nSara Pedocchi as Judge 2\nJoan Manuel Cabrera as Judge 3\n\nShot at Espacio Idus\n\nAll content copyright the artist. © 2024 JOAN MANUEL CABRERA. Site Credit.",
     description:
       "",
     read_more: "",
