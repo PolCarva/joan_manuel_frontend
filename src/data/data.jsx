@@ -5,7 +5,7 @@ export const filmProjects = [
     title: "Desfasaje Crónico",
     slug: "desfasaje-cronico",
     type: "film",
-    year: "2024-10-13T12:00:00.000Z",
+    year: "2024-12-15T12:00:00.000Z",
     project: "Fashion Film",
     url: "https://vimeo.com/1054197741",
     images: [],
