@@ -35,9 +35,9 @@ const Intro = ({ onFinish }) => {
                 clearInterval(interval);
                 setTimeout(() => {
                     onFinish(); // Ocultar intro
-                }, 100); // Pequeña pausa final
+                }, 200); // Pequeña pausa final
             }
-        }, 100); // Velocidad de cambio (100ms)
+        }, 200); // Velocidad de cambio (100ms)
 
         return () => clearInterval(interval);
     }, [imagesLoaded, totalImages, onFinish]);
@@ -48,7 +48,7 @@ const Intro = ({ onFinish }) => {
                 <img
                     src={`/intro/${currentImage}.jpg`}
                     alt={`Intro ${currentImage}`}
-                    className="w-full h-full object-cover transition-opacity duration-75"
+                    className="w-full h-full object-cover transition-opacity duration-0"
                 />
             ) : (
                 <div className="text-white"></div>
